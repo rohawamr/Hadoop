@@ -1,0 +1,4 @@
+tweet_dat = load '/data/twitter/2015-02-22.txt' as (raw: chararray);
+tweetss = foreach tweet_dat generate REGEX_EXTRACT(raw,'created_at":"([^"]+)"',1) as created_at,REGEX_EXTRACT(raw,'created_at":"([^"]+)"',1) as wday,REGEX_EXTRACT(raw, ' (\\d\\d):\\d\\d:\\d\\d',1) as hday, REGEX_EXTRACT(raw, '"text":"([^"]+)"',1) as text, REGEX_EXTRACT(raw, '"id_str":"(\\d+)","name"',1) as id;
+prezono = FILTER tweetss BY id == '211178363';
+STORE prezono INTO 'filterjson' USING JsonStorage();
