@@ -1,0 +1,9 @@
+The following are the steps use the inverted index files:_
+
+1) Run invertedIndex.sh giving with input as the word files which need to be indexed and an output folder.
+
+2) The output file will contain the index for each word and its occurance in all the articles on which the program was run.
+
+3) Now run the file map_inverted_interface.py on the output file.
+
+4) The user will be present with interface where he can enter the search query.Once entered the program gives the output of the words and the files in which they occur.
