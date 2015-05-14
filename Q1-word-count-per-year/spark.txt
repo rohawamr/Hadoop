@@ -1,0 +1,3 @@
+d=sc.textFile('hdfs://hadoop2-0-0/data/1gram/googlebooks-eng-all-1gram-20120701-y')
+wc=d.map(lambda line: ((line.split())[1],(line.split())[2])).reduceByKey(lambda a, b: ((int)a +(int)b))
+wc.collect()
